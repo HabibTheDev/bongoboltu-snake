@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "vite.config.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "index.html",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/assets/(.*)",
+        "dest": "/public/assets/$1"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/assets/(.*)",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "audio/mpeg"
+          }
+        ]
+      }
+    ]
+  }
