@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "framer-motion": "^12.4.3",
+    "react-swipeable": "^7.0.2"
+  }
+}
