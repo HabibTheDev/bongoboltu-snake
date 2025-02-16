@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Position, Direction } from '../interface/Position';
-import BONUS_FOOD_SOUND from '../assets/bangaboltu.mp3'; // Ensure this file exists and is correctly imported
+import BONUS_FOOD_SOUND from '../assets/bangaboltu.mp3'; 
 
 const GRID_SIZE = 20;
 const CELL_SIZE = 30;  // Adjust CELL_SIZE to fit the grid
