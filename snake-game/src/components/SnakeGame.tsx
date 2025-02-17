@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Position, Direction } from '../interface/Position';
 import BONUS_FOOD_SOUND from '../assets/bangaboltu.mp3'; 
+import Popup from '../libs/Popup/Popup';
 
 
 const INITIAL_SNAKE: Position[] = [{ x: 10, y: 10 }];
@@ -22,6 +23,7 @@ const SnakeGame: React.FC = () => {
   const [time, setTime] = useState<number>(0);
   const [speed, setSpeed] = useState<number>(SPEED_LEVELS.medium);
   const [currentLevel, setCurrentLevel] = useState<string>('Medium');
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
 
     // Handle screen resizing
     useEffect(() => {
@@ -72,6 +74,7 @@ const SnakeGame: React.FC = () => {
 
       if (newSnake.some(segment => segment.x === head.x && segment.y === head.y)) {
         setGameOver(true);
+        setIsOpenPopup(true);
         return;
       }
       newSnake.unshift(head);
@@ -131,6 +134,7 @@ const SnakeGame: React.FC = () => {
     setBonusFood(generateFood());
     setDirection('RIGHT');
     setGameOver(false);
+    setIsOpenPopup(false);
     setScore(0);
     setTime(0);
   };
@@ -217,6 +221,7 @@ const SnakeGame: React.FC = () => {
  </div>
 
  <button onClick={resetGame} className="px-9 py-2 mt-10 bg-red-500 rounded hover:bg-gray-400 mt-4 mx-auto w-40 items-center flex">Reset Game</button>
+ {isOpenPopup && <Popup setIsOpenPopup={setIsOpenPopup}  />}
     </div>
 
   );
