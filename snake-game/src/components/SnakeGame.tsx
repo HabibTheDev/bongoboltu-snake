@@ -163,8 +163,8 @@ const SnakeGame: React.FC = () => {
            key={index}
            className="absolute"
            style={{
-             left: segment.x * cellSize  ,
-             top: segment.y * cellSize ,
+             left: segment.x * cellSize - 12  ,
+             top: segment.y * cellSize - 12 ,
              width: cellSize * 1.2,
              height: cellSize * 1.2,
              borderRadius: 5,
